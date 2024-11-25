@@ -8,8 +8,19 @@ let blocked;
    // console.log("Value is set");
  // });
   
-  chrome.storage.local.get(["s1"]).then((result) => {
-    console.log("Value is " + result.s1);
+  await chrome.storage.local.get(["siteArray"]).then((result) => {
+    alert(result.siteArray)
+    console.log(result.siteArray)
+    if ( result.siteArray.includes(window.location.hostname)){
+      alert("can do boss")
+      //timerSubmit(blocked[window.location.hostname]);
+  }
+  else{
+
+    alert("nada boss");
+    
+    
+  }
   });
 })()
 
