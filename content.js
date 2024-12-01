@@ -2,26 +2,32 @@
 console.log("hi");
 let timeInput;
 let blocked;
+let startingMins = 10;
+let time = startingMins * 60;
+let interval;
+
 
 (async function(){
 //chrome.storage.local.set({ key: "123" }).then(() => {
    // console.log("Value is set");
  // });
   
-  await chrome.storage.local.get(["siteArray"]).then((result) => {
-    alert(result.siteArray)
-    console.log(result.siteArray)
-    if ( result.siteArray.includes(window.location.hostname)){
-      alert("can do boss")
-      //timerSubmit(blocked[window.location.hostname]);
-  }
-  else{
 
-    alert("nada boss");
-    
-    
+ const result = await chrome.storage.local.get(["siteArray"])
+ const timeResult = await chrome.storage.local.get(["timeArray"])
+
+ if (Array.isArray(result.siteArray) && result.siteArray.length > 0) {
+  console.log("Retrieved siteArray:", result.siteArray)};
+
+
+  console.log("siteArray is:", result);
+
+  if (result.siteArray.includes(window.location.hostname)){
+    alert("blocked site")
+    let index = result.siteArray.indexOf(window.location.hostname)
+    timerSubmit(timeResult.timeArray[index])
   }
-  });
+
 })()
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
@@ -43,8 +49,7 @@ else{
 }
 
 
-let startingMins = 10;
-let time = startingMins * 60;
+
 
 
   
@@ -105,12 +110,11 @@ function updateCountdown() {
 }
 
 
-let interval;
 
 
 function timerSubmit(tim){
     time = tim;
-    console.log("so we def got here...")
+    alert("so we def got here...")
     updateCountdown();
     //document.getElementById("countdown").textContent = `${time}`;
     if (interval != undefined){
