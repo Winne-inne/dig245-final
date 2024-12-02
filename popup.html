@@ -9,22 +9,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class = "container">
-        <div class = "row">
-          <div class= "col">
-            <input class= "site" id= "site1" placeholder = "site" type="url">
-             <input class= "tim" id= "time1">
-            <button id= "sub1">Sub</button>
+
+      <button class="book" id="bookButton">
+        <img src="siteBook.png">
+      </button>
+
+      <div id="sitePopup" class="hidden">
+        <div class="popupInside" id="inside">
+          <div class = "container">
+            <div class = "row">
+              <div class= "col">
+                <input class= "site" id= "site1" placeholder = "site" type="url">
+                 <input class= "tim" id= "time1">
+                <button class="sub" id= "sub1">Sub</button>
+              </div>
+              <div class= "col">
+                <input class= "site" id= "site2" placeholder = "site" type="url">
+                 <input class= "tim" id= "time2">
+                <button class="sub" id= "sub2">Sub</button>
+              </div>
+              <div class= "col">
+                <input class= "site" id= "site3" placeholder = "site" type="url">
+                 <input class= "tim" id= "time3">
+                <button id= "sub3">Sub</button>
+              </div>
+            </div>
           </div>
-          <div class= "col">
-            <input class= "site" id= "site2" placeholder = "site" type="url">
-             <input class= "tim" id= "time2">
-            <button id= "sub2">Sub</button>
-          </div>
-          <div class= "col">
-            <input class= "site" id= "site3" placeholder = "site" type="url">
-             <input class= "tim" id= "time3">
-            <button id= "sub3">Sub</button>
-          </div>
+        </div>
+      </div>
+
     <script src="popup.js"></script>
 </body>

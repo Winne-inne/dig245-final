@@ -15,6 +15,13 @@
 
     }],
 
+
+    "web_accessible_resources": [{
+            "resources": ["newEnclosure.gif", "siteBook.png"],
+            "matches": ["<all_urls>"]
+        
+    }], 
+     
     "permissions": [
         "active_tabs",
         "storage"

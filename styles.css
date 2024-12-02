@@ -1,14 +1,67 @@
 body{
-    width: 600px;
-    height: 600px;
+  width: 600px;
+  height: 600px;
+  background: url("newEnclosure.gif");
+  background-size: 600px 600px;
+  position: relative;
+  
 }
 
 .tim{
-    width: 100px;
-    height: 50px;
-   }
+  position: relative;
+  width: 100px;
+  height: 50px;
+  left: 50px;
+  top: 80px;
+}
    
-   .site{
-     width: 200px;
-     height: 50px;
-   }
+.site{
+  position: relative;
+  width: 200px;
+  height: 50px;
+  left: 30px;
+  top: 80px;
+
+}
+
+.sub{
+  position: relative;
+  left:55px;
+  top: 80px;
+}
+
+.book{
+  position: absolute;
+  all: unset;
+  padding: 0; 
+  width: 195px; 
+  height: 190px; 
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.book img{
+  position: absolute;
+  width: 195px;
+  height: 190px;
+  left:51px;
+  top: 177px;
+ object-fit: cover;
+}
+
+#sitePopup{
+  position: fixed;
+  z-index: 1000;
+  
+}
+
+#inside{
+  display: none;
+  background: url("siteSheet.png");
+  background-size: 450px 450px;
+  width: 455px;
+  height: 455px;
+  position: absolute;
+  left: 90px;
+  top: -100px;
+}

@@ -18,23 +18,6 @@ let realTime = [];
     t2.placeholder = stored.t2 || '';
 
 
-    //chrome.storage.local.set({ siteArray: realSites })
-    //chrome.storage.local.set({ timeArray: realTime })
-    //await chrome.storage.local.get(["siteArray"])
-   // await chrome.storage.local.get(["s1"]).then((result) => {
-       // s1.placeholder = result.s1
-   // })
-    //await chrome.storage.local.get(["t1"]).then((result) => {
-       // t1.placeholder = result.t1
-   // })
-    //await chrome.storage.local.get(["s2"]).then((result) => {
-        //s2.placeholder = result.s2
-   // })
-   // await chrome.storage.local.get(["t2"]).then((result) => {
-       // t2.placeholder = result.t2
-   // })
-
-
     let sites ={};
 
  
@@ -89,7 +72,8 @@ let inputTime= document.querySelector("#timer");
 localStorage.setItem("timerSubmit", document.querySelector("#timerSubmit"));
 
 
-//console.log(JSON.stringify(block));
-//alert(block[0].site);
+document.getElementById("bookButton").addEventListener("click", function(){
+    document.getElementById("inside").style.display = "block";
+})
 
 })()
