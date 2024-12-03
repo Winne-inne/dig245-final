@@ -65,7 +65,6 @@ function updateCountdown() {
 
   if (time <= 0){
      clearInterval(interval);
-        console.log("omg we're super close!");
         const rand = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
         const randomHex = () =>
         Array.from({ length: 6 }, () =>
@@ -81,7 +80,7 @@ function updateCountdown() {
         document.body.clientHeight;
     
      // string for code
-        let str = "";
+        let str = "<div id='mudHolder' style='position:fixed; z-index:9999999999; width: 100%; height: 100%;'>";
         // populate string
         for (let i = 0; i < 10; i++) {
             let x = rand(0, viewWidth);
@@ -91,6 +90,7 @@ function updateCountdown() {
             str += `<div class="mud" style="position:fixed; background-color:#${randomHex()}; width:${w}px; height:${h}px;left: ${x}px; top: ${y}px; 
                 z-index:9999999999; cursor: pointer;"></div> \n`;
         }
+        str += '</div>'
         console.clear();
         console.log(str);
         // "append" to body
@@ -102,6 +102,9 @@ function updateCountdown() {
             ele.addEventListener("click", () => {
                 ele.remove();
             });
+            window.onscroll = function (e) { 
+                moreMud();
+             }
     });
     
 
@@ -110,11 +113,50 @@ function updateCountdown() {
 }
 
 
-
+function moreMud(){
+  const rand = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+        const randomHex = () =>
+        Array.from({ length: 6 }, () =>
+            "0123456789ABCDEF".charAt(Math.floor(Math.random() * 16))
+        ).join("");
+     const viewWidth =
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth;
+        const viewHeight =
+        window.innerHeight ||
+        document.documentElement.clientHeight ||
+        document.body.clientHeight;
+    
+     // string for code
+        let str = "<div id='holderTwo style='position:fixed; z-index:9999999999; width: 100%; height: 100%;'>";
+        // populate string
+        for (let i = 0; i < 10; i++) {
+            let x = rand(0, viewWidth);
+            let y = rand(0, viewHeight);
+            let w = rand(10, 50);
+            let h = rand(10, 50);
+            str += `<div class="mud" style="position:fixed; background-color:#${randomHex()}; width:${w}px; height:${h}px;left: ${x}px; top: ${y}px; 
+                z-index:9999999999; cursor: pointer;"></div> \n`;
+        }
+        str += "</div>"
+        console.clear();
+        console.log(str);
+        // "append" to body
+        document.body.insertAdjacentHTML("beforeend", str);
+        
+        // add click to remove
+        let eles = document.querySelectorAll(".mud");
+        eles.forEach((ele, i) => {
+            ele.addEventListener("click", () => {
+                ele.remove();
+            });
+          });
+            
+}
 
 function timerSubmit(tim){
     time = tim;
-    alert("so we def got here...")
     updateCountdown();
     //document.getElementById("countdown").textContent = `${time}`;
     if (interval != undefined){
