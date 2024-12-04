@@ -65,15 +65,79 @@ document.getElementById("sub2").addEventListener("click", function () {
         });
 });
 
+document.getElementById("sub3").addEventListener("click", function () {
+    let threeSite= document.getElementById("site3").value;
+        threeSite = new URL(threeSite).hostname;
+        let threeTime= document.getElementById("time3").value;
+        chrome.storage.local.set({ s3: threeSite, t3: threeTime });
+
+        realSites[2]= threeSite;
+        realTime[2]= threeTime;
+
+        chrome.storage.local.set({ siteArray: realSites, timeArray: realTime });
+
+        sites[threeSite] = threeTime;
+
+   
+
+        chrome.tabs.query({ active:true, currentWindow: true}, function(tabs){
+            chrome.tabs.sendMessage(tabs[0].id, {type: 'INPUT', data: sites })
+        });
+});
+
+document.getElementById("sub4").addEventListener("click", function () {
+    let fourSite= document.getElementById("site4").value;
+        fourSite = new URL(fourSite).hostname;
+        let fourTime= document.getElementById("time4").value;
+        chrome.storage.local.set({ s4: fourSite, t4: fourTime });
+
+        realSites[3]= fourSite;
+        realTime[3]= fourTime;
+
+        chrome.storage.local.set({ siteArray: realSites, timeArray: realTime });
+
+        sites[fourSite] = fourTime;
+
+   
+
+        chrome.tabs.query({ active:true, currentWindow: true}, function(tabs){
+            chrome.tabs.sendMessage(tabs[0].id, {type: 'INPUT', data: sites })
+        });
+});
+
+document.getElementById("sub5").addEventListener("click", function () {
+    let fiveSite= document.getElementById("site5").value;
+        fiveSite = new URL(fiveSite).hostname;
+        let fiveTime= document.getElementById("time5").value;
+        chrome.storage.local.set({ s5: fiveSite, t5: fiveTime });
+
+        realSites[4]= fiveSite;
+        realTime[4]= fiveTime;
+
+        chrome.storage.local.set({ siteArray: realSites, timeArray: realTime });
+
+        sites[fiveSite] = fiveTime;
+
+   
+
+        chrome.tabs.query({ active:true, currentWindow: true}, function(tabs){
+            chrome.tabs.sendMessage(tabs[0].id, {type: 'INPUT', data: sites })
+        });
+});
 
 
 
-let inputTime= document.querySelector("#timer");
+
+
 localStorage.setItem("timerSubmit", document.querySelector("#timerSubmit"));
 
 
 document.getElementById("bookButton").addEventListener("click", function(){
     document.getElementById("inside").style.display = "block";
+})
+
+document.getElementById("infoButton").addEventListener("click", function(){
+    document.getElementById("infoIn").style.display = "block";
 })
 
 })()

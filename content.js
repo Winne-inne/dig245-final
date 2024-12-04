@@ -40,21 +40,17 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
 });
 
 
-if (window.location.hostname in blocked){
-    console.log("can do boss")
-    timerSubmit(blocked[window.location.hostname]);
-}
-else{
-    console.log("nada boss");
+function getRandomSplash() {
+  let splashes = [chrome.runtime.getURL('Splash1.png'), chrome.runtime.getURL('Splash2.png'), chrome.runtime.getURL('Splash3.png'), chrome.runtime.getURL('Splash4.png')]
+  const randomIndex = Math.floor(Math.random() * splashes.length);
+  return splashes[randomIndex];
 }
 
-
-
-
-
-  
+//let splashes = ['Splash1.png', 'Splash2.png', 'Splash3.png', 'Splash4.png']
 
 function updateCountdown() {
+  
+  let randSplash = getRandomSplash()
   const minutes = Math.floor(time/ 60);
   let seconds = time % 60;
   console.log(time + "we can do it!");
@@ -80,15 +76,15 @@ function updateCountdown() {
         document.body.clientHeight;
     
      // string for code
-        let str = "<div id='mudHolder' style='position:fixed; z-index:9999999999; width: 100%; height: 100%;'>";
+        let str = "<div id='mudHolder' style='position:fixed; z-index:999999999999999999; width: 100%; height: 100%;'>";
         // populate string
         for (let i = 0; i < 10; i++) {
             let x = rand(0, viewWidth);
             let y = rand(0, viewHeight);
             let w = rand(10, 50);
             let h = rand(10, 50);
-            str += `<div class="mud" style="position:fixed; background-color:#${randomHex()}; width:${w}px; height:${h}px;left: ${x}px; top: ${y}px; 
-                z-index:9999999999; cursor: pointer;"></div> \n`;
+            str += `<div class="mud" style="position:fixed; background: url('${randSplash}'); background-size: contain; width:${w}px; height:${h}px;left: ${x}px; top: ${y}px; 
+                z-index:99999999999999999; cursor: pointer;"></div> \n`;
         }
         str += '</div>'
         console.clear();
@@ -114,6 +110,7 @@ function updateCountdown() {
 
 
 function moreMud(){
+  let randSplash = getRandomSplash()
   const rand = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
         const randomHex = () =>
         Array.from({ length: 6 }, () =>
@@ -129,15 +126,15 @@ function moreMud(){
         document.body.clientHeight;
     
      // string for code
-        let str = "<div id='holderTwo style='position:fixed; z-index:9999999999; width: 100%; height: 100%;'>";
+        let str = "<div id='holderTwo style='position:fixed; z-index:999999999999999999999; width: 100%; height: 100%;'>";
         // populate string
         for (let i = 0; i < 10; i++) {
             let x = rand(0, viewWidth);
             let y = rand(0, viewHeight);
             let w = rand(10, 50);
             let h = rand(10, 50);
-            str += `<div class="mud" style="position:fixed; background-color:#${randomHex()}; width:${w}px; height:${h}px;left: ${x}px; top: ${y}px; 
-                z-index:9999999999; cursor: pointer;"></div> \n`;
+            str += `<div class="mud" style="position:fixed; background: url('${randSplash}'); background-size: contain; width:${w}px; height:${h}px;left: ${x}px; top: ${y}px; 
+                z-index:99999999999999999999999; cursor: pointer;"></div> \n`;
         }
         str += "</div>"
         console.clear();
