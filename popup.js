@@ -140,4 +140,12 @@ document.getElementById("infoButton").addEventListener("click", function(){
     document.getElementById("infoIn").style.display = "block";
 })
 
+document.getElementById("close1").addEventListener("click", function(){
+    document.getElementById("infoIn").style.display = "none";
+})
+
+document.getElementById("close2").addEventListener("click", function(){
+    document.getElementById("inside").style.display = "none";
+})
+
 })()

@@ -5,6 +5,11 @@
     "version": "1.0.0",
     "manifest_version": 3,
     "permissons": ["tabs"],
+    "icons": {
+        "16": "IconTest.png",
+        "48": "IconTest.png",
+        "128": "IconTest.png"
+    },
     "action": {
         "default_popup": "popup.html"
     },
@@ -17,7 +22,7 @@
 
 
     "web_accessible_resources": [{
-            "resources": ["newEnclosure.gif", "siteBook.png", "instructionBook.png", "Splash1.png","Splash2.png","Splash3.png","Splash4.png", "*.png"],
+            "resources": ["newEnclosure.gif", "siteBook.png", "infoBook.png", "Splash1.png","Splash2.png","Splash3.png","Splash4.png", "*.png"],
             "matches": ["<all_urls>"]
         
     }], 
